@@ -1,1 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Faith Foundations | Bible Verses & Devotion</title>
+  <!-- Google Fonts for clean, reverent typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background: linear-gradient(145deg, #fef9e6 0%, #fff6ea 100%);
+      font-family: 'Inter', sans-serif;
+      color: #2c2418;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* headings & scripture style */
+    h1, h2, h3, .scripture-large {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      background: linear-gradient(135deg, #8b5a2b, #c27e3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.02);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      border-left: 6px solid #d9a13b;
+      padding-left: 1.2rem;
+      margin: 2rem 0 1.2rem 0;
+      color: #4a2e1a;
+    }
+
+    .verse-card {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      background: linear-gradient(115deg, #fffbf2, #fff7ed);
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.05);
+      padding: 2rem 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.2s ease;
+      border: 1px solid #f0e2c5;
+    }
+
+    .verse-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 25px 40px -14px rgba(0,0,0,0.15);
+    }
+
+    .bible-ref {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: #b57c2c;
+      display: inline-block;
+      border-bottom: 2px solid #e7cfa1;
+      margin-bottom: 1rem;
+    }
+
+    .verse-text {
+      font-size: 1.9rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #2c2418;
+      margin: 1rem 0 0.75rem;
+    }
+
+    .verse-text-lg {
+      font-size: 2.2rem;
+    }
+
+    .moral-box {
+      background: #faf0e1;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.8rem;
+      margin-top: 1.5rem;
+      border-left: 8px solid #d9a13b;
+    }
+
+    .moral-box p {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .flex-lessons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .lesson-card {
+      flex: 1 1 220px;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+      border: 1px solid #f1e2cd;
+    }
+
+    .lesson-card i {
+      font-size: 2.5rem;
+      color: #c0812b;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-card h4 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .lesson-card p {
+      font-size: 0.9rem;
+      color: #5f4a32;
+    }
+
+    .poster-section {
+      background: radial-gradient(circle at 10% 20%, #2a241a, #19150f);
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      box-shadow: 0 25px 35px -12px black;
+      border: 1px solid #dab066;
+    }
+
+    .poster-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.8rem;
+      font-weight: 700;
+      color: #ffecb3;
+      text-shadow: 0 4px 12px #00000030;
+      letter-spacing: 1px;
+    }
+
+    .poster-verse {
+      font-size: 1.5rem;
+      color: #f8e2b0;
+      max-width: 700px;
+      margin: 1rem auto;
+      font-style: italic;
+    }
+
+    .poster-alert {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: #d9a13b20;
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      margin: 0.8rem 0;
+      color: #ffdd99;
+    }
+
+    .btn-faith {
+      background: #c2812e;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 40px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1rem;
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-faith:hover {
+      background: #9b601f;
+      transform: scale(1.02);
+    }
+
+    .music-suggest {
+      background: #efe3d1;
+      border-radius: 1.8rem;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .music-suggest h3 {
+      font-size: 1.6rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .music-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .music-links a {
+      background: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #8b5a2b;
+      font-weight: 600;
+      transition: all 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .music-links a:hover {
+      background: #f0dbb4;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eedbba;
+      font-size: 0.85rem;
+      color: #7f694c;
+    }
+
+    .share-tip {
+      background: #faf3e8;
+      border-radius: 1rem;
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0 0;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        padding: 1.2rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      .verse-text {
+        font-size: 1.5rem;
+      }
+      .poster-title {
+        font-size: 2.2rem;
+      }
+      .flex-lessons {
+        flex-direction: column;
+      }
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #f7e9d7, #fff1e2);
+    }
+    .small-note {
+      font-size: 0.8rem;
+      color: #9b7c5a;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  
+  <!-- Header / Title -->
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <h1>✝️ SHEPHERD’S TABLE</h1>
+    <p style="font-size: 1.2rem; color: #7c5f3a;">Scripture | Devotion | Gospel Encouragement</p>
+    <div style="width: 80px; height: 3px; background: #e3c794; margin: 0.8rem auto;"></div>
+  </div>
+
+  <!-- 3 BIBLE VERSES section (including Matthew 5:17-18, Beatitude, and 1 Peter 5:8) -->
+  <h2><i class="fas fa-bible" style="margin-right: 12px;"></i> Three Pillars of Truth</h2>
+  
+  <!-- Matthew 5:17-18 Card -->
+  <div class="verse-card">
+    <span class="bible-ref"><i class="fas fa-scroll"></i> MATTHEW 5:17-18</span>
+    <div class="verse-text">“Do not think that I have come to abolish the Law or the Prophets; I have not come to abolish them but to fulfill them. For truly I tell you, until heaven and earth disappear, not the smallest letter, not the least stroke of a pen, will by any means disappear from the Law until everything is accomplished.”</div>
+    <div class="moral-box">
+      <i class="fas fa-lightbulb" style="color:#c27e3a; margin-right: 8px;"></i> <strong>Lesson:</strong> Christ came to fulfill God's perfect law. His grace doesn't erase truth—it completes it. Let this anchor your faith.
+    </div>
+  </div>
+
+  <!-- Beatitude: Blessed are the merciful (Matthew 5:7) -->
+  <div class="verse-card">
+    <span class="bible-ref"><i class="fas fa-hand-holding-heart"></i> MATTHEW 5:7</span>
+    <div class="verse-text">“Blessed are the merciful, for they will be shown mercy.”</div>
+    <div class="moral-box">
+      <i class="fas fa-dove" style="color:#c27e3a; margin-right: 8px;"></i> <strong>Mercy reflection:</strong> The mercy we extend echoes heaven's mercy toward us. Forgiveness breaks chains.
+    </div>
+  </div>
+
+  <!-- 1 Peter 5:8 - primary alert verse (with 'Be alert! of sober mind') -->
+  <div class="verse-card">
+    <span class="bible-ref"><i class="fas fa-shield-alt"></i> 1 PETER 5:8</span>
+    <div class="verse-text verse-text-lg">“Be alert and of sober mind. Your enemy the devil prowls around like a roaring lion looking for someone to devour.”</div>
+    <div class="moral-box">
+      <p><strong>⚡ MORAL OF THE VERSE:</strong> Always be alert because Satan can just come and attack you anytime. Stay watchful, prayerful, and grounded in God's Word. Resist him, standing firm in the faith (1 Peter 5:9).</p>
+      <div class="share-tip" style="margin-top: 12px;">
+        <i class="fas fa-praying-hands"></i> “Resist him, standing firm in the faith, because you know that the family of believers throughout the world is undergoing the same kind of sufferings.”
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON + PERSONAL DEVOTION PLANS -->
+  <h2><i class="fas fa-heart" style="margin-right: 12px;"></i> Devotion & Growth Plans</h2>
+  <div class="flex-lessons">
+    <div class="lesson-card">
+      <i class="fas fa-chalkboard-user"></i>
+      <h4>📖 Sharing Your Faith</h4>
+      <p>Learn how to confidently share the gospel with gentleness and respect. Practical steps, real-life scenarios, and scripture-based encouragement.</p>
+      <div class="small-note">“Always be prepared to give an answer...” (1 Peter 3:15)</div>
+    </div>
+    <div class="lesson-card">
+      <i class="fas fa-hand-peace"></i>
+      <h4>🕊️ Choosing Forgiveness</h4>
+      <p>Forgiveness is not always easy, but this lesson helps you release bitterness and walk in the freedom Christ gives. Let mercy flow.</p>
+      <div class="small-note">Forgive as the Lord forgave you (Colossians 3:13)</div>
+    </div>
+    <div class="lesson-card">
+      <i class="fas fa-heartbeat"></i>
+      <h4>❤️ 1 Corinthians 13</h4>
+      <p>The greatest of these is love. Dive deep into the attributes of God’s love — patience, kindness, not self-seeking — and become more like Jesus.</p>
+      <div class="small-note">Faith, hope, love abide; the greatest is love.</div>
+    </div>
+  </div>
+
+  <!-- Extra lesson: personal devotion plans (Bible verse for today + moral) -->
+  <div style="background: #fef1e1; border-radius: 1.5rem; padding: 1.2rem 2rem; margin: 1rem 0 2rem;">
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <i class="fas fa-book-open" style="font-size: 2rem; color: #c27e3a;"></i>
+      <span style="font-weight: 800; font-size: 1.4rem; font-family: 'Cormorant Garamond';">Personal Devotion Plan for Today</span>
+    </div>
+    <p style="font-size: 1.2rem; margin-top: 8px;"><strong>Bible Verse for Today:</strong> <em>“Be alert and of sober mind. Your enemy the devil prowls around like a roaring lion looking for someone to devour.” (1 Peter 5:8)</em></p>
+    <p><strong>📌 Moral of the verse:</strong> Stay spiritually vigilant, because the enemy seeks moments of weakness. Through prayer and God’s Word, we stand firm. "Resist him, standing firm in the faith."</p>
+    <p><i class="fas fa-pen-fancy"></i> <strong>Action step:</strong> Set a daily 'watchman prayer' — 5 minutes of alertness intercession. Write down one area where you need self-control today.</p>
+  </div>
+
+  <!-- BIBLE POSTER!! (creative section) -->
+  <h2><i class="fas fa-poster" style="margin-right: 8px;"></i> Gospel Poster — Declare the Word</h2>
+  <div class="poster-section">
+    <div class="poster-title">⚔️ BE ALERT! ⚔️</div>
+    <div class="poster-alert">OF SOBER MIND</div>
+    <div class="poster-verse">“Your enemy the devil prowls around like a roaring lion, looking for someone to devour.”</div>
+    <div style="font-size: 1.4rem; color: #eccf9a; margin: 1rem 0 0.5rem;">RESIST HIM — STAND FIRM IN THE FAITH</div>
+    <div style="font-size: 1rem; color: #eedfa5; max-width: 500px; margin: 0 auto;">Because you know that the family of believers throughout the world is undergoing the same trials. <strong>1 Peter 5:9</strong></div>
+    <button class="btn-faith" id="shareFaithBtn"><i class="fas fa-share-alt"></i> Share this truth</button>
+    <div id="shareFeedback" style="margin-top: 12px; font-size: 0.8rem; color: #ffeaac;"></div>
+  </div>
+
+  <!-- MUSIC FOR GOSPEL I SUGGEST -->
+  <div class="music-suggest">
+    <h3><i class="fas fa-head-side-headphones"></i> 🎵 Gospel Playlist Picks</h3>
+    <div class="music-links">
+      <a href="#" target="_blank"><i class="fab fa-spotify"></i> Way Maker (Sinach)</a>
+      <a href="#" target="_blank"><i class="fab fa-youtube"></i> What A Beautiful Name</a>
+      <a href="#" target="_blank"><i class="fab fa-apple"></i> Goodness of God</a>
+      <a href="#" target="_blank"><i class="fas fa-church"></i> Reckless Love</a>
+    </div>
+  </div>
+  <p class="small-note" style="text-align: center;">🎧 These worship songs deepen your spirit and help you meditate on God’s faithfulness. Listen & be encouraged.</p>
+
+  <!-- Additional sections: Standing firm in the faith & full reference from 1 Peter -->
+  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 2rem 0;">
+    <div style="flex: 1; background: #fff2e4; border-radius: 1.5rem; padding: 1.5rem;">
+      <i class="fas fa-lion" style="font-size: 2rem; color:#b5651e;"></i>
+      <h3 style="margin: 0.5rem 0;">Resist the Lion</h3>
+      <p>“Standing firm in the faith, because you know that the family of believers throughout the world is undergoing the same kind of sufferings.” (1 Peter 5:9) — You are not alone. Global unity in faith defeats isolation.</p>
+    </div>
+    <div style="flex: 1; background: #fff2e4; border-radius: 1.5rem; padding: 1.5rem;">
+      <i class="fas fa-hands-praying"></i>
+      <h3 style="margin: 0.5rem 0;">Daily Armor of God</h3>
+      <p>Be alert, put on the full armor (Ephesians 6). The enemy prowls, but the Lord watches over you. Stay sober-minded and filled with the Spirit.</p>
+    </div>
+  </div>
+
+  <!-- Little excerpt about the mercy / lesson from the beatitude -->
+  <div class="verse-card highlight">
+    <span class="bible-ref"><i class="fas fa-feather-alt"></i> EXTRA REFLECTION</span>
+    <div class="verse-text" style="font-size: 1.6rem;">“Blessed are the merciful, for they will be shown mercy.” — Let this shape your interactions today.</div>
+    <div class="moral-box">
+      <strong>Lesson from the Bible verse (Mercy):</strong> When we extend grace to others, we open the door for God’s transformative mercy in our own lives. Forgive, love, and show compassion.
+    </div>
+  </div>
+
+  <!-- Additional notes: Sharing your faith + 1 Cor 13 deeper lesson -->
+  <div style="background: linear-gradient(120deg, #fff2e3, #fff9f0); border-radius: 2rem; padding: 1.8rem; margin: 2rem 0;">
+    <h3 style="display: flex; gap: 10px;"><i class="fas fa-comment-dots"></i> How to Share Your Faith (Practical)</h3>
+    <p>1. Start with prayer — ask God for boldness. 2. Share your personal testimony of God's goodness. 3. Use scripture like John 3:16 or Romans 10:9. 4. Listen with love and patience. Our <strong>“Sharing Your Faith”</strong> lesson dives into real-life conversation models.</p>
+    <hr style="margin: 1rem 0; border-color: #eed7b5;">
+    <h3><i class="fas fa-heart"></i> 1 Corinthians 13 — The Love Chapter</h3>
+    <p><em>“Love is patient, love is kind... It does not dishonor others, it is not self-seeking...”</em> This lesson will teach you all about love and how to be like Jesus. Faith, hope, and love abide; the greatest of these is love. Let love lead every interaction.</p>
+    <div class="share-tip" style="background: #e7d4bd;">✨ <strong>Challenge:</strong> This week, intentionally practice one attribute of 1 Corinthians 13 each day (patience, kindness, humility, etc.) and watch how God moves.</div>
+  </div>
+
+  <!-- Thank you and final encouragement -->
+  <footer>
+    <p><i class="fas fa-cross"></i> “Be alert, stand firm in the faith, be courageous, be strong.” — 1 Corinthians 16:13</p>
+    <p style="margin-top: 12px;">✨ THANK YOU for studying the Word! ✨ <br> May these Bible verses strengthen your walk, and may you share God’s mercy everywhere.</p>
+    <div style="margin-top: 1rem;">📖 <strong>BIBLE POSTER & DEVOTION</strong> — Keep this truth before your eyes. Jesus is the Victor.</div>
+    <div class="small-note">© Faith Foundations | Rooted in Scripture</div>
+  </footer>
+</div>
+
+<!-- interactive mini script for sharing poster -->
+<script>
+  const shareBtn = document.getElementById('shareFaithBtn');
+  const feedbackSpan = document.getElementById('shareFeedback');
+  if(shareBtn) {
+    shareBtn.addEventListener('click', function() {
+      // Simulate sharing the poster truth
+      if (navigator.share) {
+        navigator.share({
+          title: 'BE ALERT! Resist the enemy',
+          text: '“Your enemy the devil prowls like a roaring lion. Resist him, standing firm in the faith.” 1 Peter 5:8-9',
+          url: window.location.href,
+        }).catch(() => {
+          feedbackSpan.innerText = '❤️ Copied to clipboard: share this verse with someone!';
+          copyToClipboardManual();
+        });
+      } else {
+        copyToClipboardManual();
+      }
+    });
+    function copyToClipboardManual() {
+      const textToCopy = 'BE ALERT! Be of sober mind. Your enemy the devil prowls like a roaring lion looking for someone to devour. RESIST HIM, standing firm in the faith. (1 Peter 5:8-9) 🙏';
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        feedbackSpan.innerText = '✓ Verse copied! Share with a friend and encourage them.';
+        setTimeout(() => {
+          feedbackSpan.innerText = '';
+        }, 3000);
+      }).catch(() => {
+        feedbackSpan.innerText = 'Click and share manually: ' + textToCopy.slice(0, 50) + '...';
+      });
+    }
+  }
+
+  // additional hover / dynamic music links (just dummy placeholders for demonstration)
+  const musicLinks = document.querySelectorAll('.music-links a');
+  musicLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      let songTitle = link.innerText.trim();
+      alert(`🎶 "${songTitle}" — Open your worship app or search for this gospel song. Let it draw you closer to God's presence.`);
+    });
+  });
+</script>
+</body>
+</html>
