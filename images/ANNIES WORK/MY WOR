@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Blossom Grace | Light Pink Scripture Sanctuary</title>
+  <!-- Google Fonts: Playfair Display + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff9fb;
+      font-family: 'Inter', sans-serif;
+      color: #5e3a4e;
+      overflow-x: hidden;
+    }
+
+    /* ----- Navigation Bar (matching pink aesthetic) ----- */
+    .navbar {
+      background: rgba(255, 245, 248, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 2px solid #ffe2ea;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #e899b5, #f5aec8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #c86f8f;
+      transition: all 0.2s ease;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a:hover {
+      color: #e07ea2;
+      background: #ffeef3;
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+    }
+
+    /* ---------- COVER SECTION (soft pink dream) ---------- */
+    .cover {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fbc4d5, #f8a5c2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    .cover-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.2;
+      z-index: 1;
+      filter: brightness(0.95) contrast(1.05) blur(1.5px);
+      transition: transform 12s ease;
+    }
+
+    .cover:hover .cover-bg-img {
+      transform: scale(1.02);
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      background: rgba(255, 235, 240, 0.55);
+      backdrop-filter: blur(18px);
+      padding: 3rem 2.5rem;
+      border-radius: 3rem;
+      border: 1px solid rgba(255, 200, 210, 0.6);
+      box-shadow: 0 35px 50px -20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 220, 230, 0.5);
+      animation: pinkGlow 4s infinite alternate;
+    }
+
+    @keyframes pinkGlow {
+      0% { box-shadow: 0 35px 50px -20px rgba(0, 0, 0, 0.15); border-color: rgba(255, 190, 200, 0.5); }
+      100% { box-shadow: 0 45px 60px -15px rgba(0, 0, 0, 0.25); border-color: rgba(255, 210, 220, 0.9); }
+    }
+
+    .cover-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f7cad0, #f2a0b5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      letter-spacing: -0.5px;
+    }
+
+    .cover-content p {
+      font-size: 1.2rem;
+      color: #fce4ea;
+      margin: 1rem 0;
+      font-weight: 400;
+    }
+
+    .btn-enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(95deg, #f5a0b9, #f07d9e);
+      padding: 0.9rem 2.4rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      margin-top: 1.8rem;
+      transition: all 0.3s ease;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-enter:hover {
+      background: linear-gradient(95deg, #ffb0c6, #ff8aad);
+      transform: scale(1.02);
+    }
+
+    /* ---------- MAIN CONTENT (light pink aesthetic) ---------- */
+    .main-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+      display: none;
+    }
+
+    .aesthetic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      text-align: center;
+      margin: 1rem 0 2rem;
+      position: relative;
+      color: #d47a9a;
+    }
+    .aesthetic-title:after {
+      content: '';
+      display: block;
+      width: 85px;
+      height: 3px;
+      background: #f3b0c2;
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    .poster-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2.5rem 0;
+    }
+
+    .scripture-card {
+      background: rgba(255, 252, 253, 0.95);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 35px -18px rgba(180, 100, 120, 0.15);
+      padding: 2rem 1.8rem;
+      flex: 1;
+      min-width: 280px;
+      transition: all 0.35s ease;
+      border: 1px solid #ffe2ea;
+    }
+
+    .scripture-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 42px -15px rgba(200, 100, 130, 0.25);
+      border-color: #ffcfdd;
+      background: #ffffff;
+    }
+
+    .verse-icon {
+      font-size: 2.2rem;
+      color: #f28aa8;
+      margin-bottom: 1rem;
+    }
+
+    .verse-ref-styled {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      color: #d16a90;
+      background: #ffeef3;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 50px;
+    }
+
+    .verse-large {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 1rem 0 0.8rem;
+      color: #b5577a;
+    }
+
+    .verse-text-body {
+      color: #a16b82;
+      font-weight: 400;
+      margin-top: 0.8rem;
+    }
+
+    /* PINK ALERT POSTER */
+    .alert-masterpiece {
+      background: linear-gradient(125deg, #f5cddb, #fdb7cb);
+      border-radius: 3rem;
+      padding: 2.2rem;
+      margin: 3rem 0;
+      box-shadow: 0 28px 40px -18px #e79aba;
+      border: 1px solid #ffc0d0;
+      position: relative;
+      overflow: hidden;
+    }
+    .alert-masterpiece:before {
+      content: "🦁";
+      font-size: 140px;
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .alert-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #b34e73;
+    }
+
+    .roar-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #a33f63;
+      margin: 0.7rem 0;
+    }
+
+    .resist-block {
+      background: rgba(255, 220, 230, 0.7);
+      display: inline-block;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      margin: 1rem 0;
+      backdrop-filter: blur(5px);
+      color: #a14064;
+    }
+
+    .pink-quote {
+      background: #fff5f8;
+      border-radius: 2rem;
+      padding: 1.8rem;
+      border-left: 10px solid #f59fba;
+      margin: 1.8rem 0;
+    }
+
+    .music-suggestion {
+      background: #ffeef3;
+      border-radius: 3rem;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      border: 1px solid #ffdee8;
+    }
+
+    .music-badge i {
+      margin-right: 8px;
+      color: #f085a6;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ffe0ea;
+      font-size: 0.85rem;
+      color: #cf8aaa;
+    }
+
+    .pink-tag {
+      background: #ffeef3;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #ce7c9c;
+    }
+
+    @media (max-width: 760px) {
+      .cover-content h1 { font-size: 2.3rem; }
+      .verse-large { font-size: 1.45rem; }
+      .aesthetic-title { font-size: 2rem; }
+      .roar-text { font-size: 1.3rem; }
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar (updated with link to program.html) -->
+<div class="navbar">
+  <div class="logo"><a href="index.html">🌸 Blossom Grace</a></div>
+  <ul class="nav-links">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="program.html"><i class="fas fa-calendar-alt"></i> Programs</a></li>
+    <li><a href="#verses"><i class="fas fa-bible"></i> Verses</a></li>
+    <li><a href="#music"><i class="fas fa-music"></i> Worship</a></li>
+  </ul>
+</div>
+
+<!-- COVER: soft pink -->
+<div id="coverSection" class="cover">
+  <img class="cover-bg-img" id="coverImg" alt="Pink sanctuary" src="picture.png">
+  <div class="cover-content">
+    <i class="fas fa-feather-alt" style="font-size: 3rem; color: #ffccda; margin-bottom: 0.5rem;"></i>
+    <h1>All Your Needs<br>According to His Riches</h1>
+    <p>Philippians 4:19 · The Merciful · Standing Firm in Faith</p>
+    <button class="btn-enter" id="enterBtn"><i class="fas fa-heart"></i> Enter the Pink Peace <i class="fas fa-arrow-right"></i></button>
+    <p style="font-size: 0.75rem; margin-top: 1.3rem; opacity: 0.9;">“Blessed are the merciful, for they will be shown mercy.” — Matthew 5:7</p>
+  </div>
+</div>
+
+<!-- MAIN PINK CONTENT -->
+<div id="mainContent" class="main-content">
+  <div class="aesthetic-title" id="verses">
+    <i class="fas fa-scroll" style="font-size: 2rem; opacity: 0.8; color: #f096b4;"></i><br>
+    ✿ verses of mercy & watchfulness ✿
+  </div>
+
+  <div class="poster-grid">
+    <div class="scripture-card">
+      <div class="verse-icon"><i class="fas fa-hand-holding-heart"></i></div>
+      <div class="verse-ref-styled">Providence · Promise</div>
+      <div class="verse-large">“And my God will meet <strong>all your needs</strong> according to the riches of his glory in Christ Jesus.”</div>
+      <div class="verse-ref-styled" style="background: #ffeef3;">PHILIPPIANS 4:19</div>
+      <div class="verse-text-body">No lack can linger — His riches in glory overflow. Rest in divine abundance.</div>
+    </div>
+
+    <div class="scripture-card">
+      <div class="verse-icon"><i class="fas fa-dove"></i></div>
+      <div class="verse-ref-styled">Beatitude · Mercy</div>
+      <div class="verse-large">“Blessed are the merciful, for they will be shown mercy.”</div>
+      <div class="verse-ref-styled" style="background: #ffeef3;">MATTHEW 5:7</div>
+      <div class="verse-text-body">Kindness is a heavenly mirror — when we forgive, mercy flows back like soft pink petals.</div>
+    </div>
+  </div>
+
+  <!-- 1 PETER 5:8-9 ALERT POSTER pink edition -->
+  <div class="alert-masterpiece">
+    <div class="alert-title"><i class="fas fa-shield-virus"></i> · WATCH & PRAY ·</div>
+    <div class="roar-text">BE ALERT! &nbsp;|&nbsp; OF SOBER MIND</div>
+    <div style="font-size: 1.3rem; font-weight: 500; color: #b5466b; margin: 0.5rem 0;">Your enemy the devil prowls around like a roaring lion <br> looking for someone to devour.</div>
+    <div class="resist-block"><i class="fas fa-crosshairs"></i> RESIST HIM — STANDING FIRM IN THE FAITH</div>
+    <div style="margin-top: 1rem; color: #b75278; font-style: italic;">“Because you know that the family of believers throughout the world is undergoing the same kind of sufferings.”</div>
+    <div class="verse-ref-styled" style="background: #ffd9e4; color:#b34e73; margin-top: 0.8rem;">1 PETER 5:8-9</div>
+  </div>
+
+  <div class="poster-grid">
+    <div class="scripture-card">
+      <i class="fas fa-feather-alt" style="font-size: 2rem; color: #f09ebc;"></i>
+      <h3 style="font-family: 'Playfair Display'; margin: 0.5rem 0;">The Merciful Receive Mercy</h3>
+      <p>Matthew 5:7 reveals the rhythm of heaven. When you release bitterness, you invite divine tenderness into your life.</p>
+    </div>
+    <div class="scripture-card">
+      <i class="fas fa-crown" style="font-size: 2rem; color:#f09ebc;"></i>
+      <h3 style="font-family: 'Playfair Display'; margin: 0.5rem 0;">Riches in Glory</h3>
+      <p>Philippians 4:19 declares every need—emotional, spiritual, relational—is supplied from God's glorious treasure chest.</p>
+    </div>
+    <div class="scripture-card">
+      <i class="fas fa-lion" style="font-size: 2rem; color:#f09ebc;"></i>
+      <h3 style="font-family: 'Playfair Display'; margin: 0.5rem 0;">Sober-Minded Victory</h3>
+      <p>1 Peter 5:8-9 calls us to alertness. The enemy prowls, but the global family stands united in faith.</p>
+    </div>
+  </div>
+
+  <div class="pink-quote">
+    <i class="fas fa-candle-light" style="font-size: 2rem; float: left; margin-right: 1rem; color: #f598b6;"></i>
+    <h3 style="font-family: 'Playfair Display'; font-weight: 600;">✧ Personal Devotion & Growth ✧</h3>
+    <p><strong>📖 Bible Verse for Today:</strong> “Be alert and of sober mind. Your enemy the devil prowls around like a roaring lion looking for someone to devour.” (1 Peter 5:8)</p>
+    <p><strong>⚡ Moral of the Verse:</strong> Always be watchful — the enemy seeks moments of spiritual drowsiness. Through prayer and God's Word, we remain steadfast. “Resist him, standing firm in the faith.”</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+      <span class="pink-tag"><i class="fas fa-share-alt"></i> Sharing Your Faith</span>
+      <span class="pink-tag"><i class="fas fa-hand-peace"></i> Choosing Forgiveness</span>
+      <span class="pink-tag"><i class="fas fa-heart"></i> 1 Corinthians 13 — Love's Greatness</span>
+    </div>
+  </div>
+
+  <div class="music-suggestion" id="music">
+    <div class="music-badge"><i class="fas fa-headphones-alt fa-fw"></i> <strong>GOSPEL PLAYLIST (Pink edition)</strong> — Way Maker, What A Beautiful Name, Goodness of God, Reckless Love</div>
+    <div><i class="fas fa-church"></i> Let worship keep your spirit alert</div>
+  </div>
+
+  <div style="background: #fff2f6; border-radius: 2rem; padding: 1.5rem; margin: 2rem 0; text-align: center; border:1px solid #ffdee8;">
+    <i class="fas fa-heart" style="color: #f47ca0;"></i> <strong>1 Corinthians 13 deep dive:</strong> Love is patient, kind, and never fails. Jesus modeled perfect love — may this be your daily anthem.
+  </div>
+
+  <footer>
+    <i class="fas fa-feather"></i> “Resist him, standing firm in the faith, because you know that the family of believers throughout the world is undergoing the same sufferings.” — 1 Peter 5:9 <br>
+    <span style="font-size: 1rem;">✨ THANK YOU — May His mercy and provision guard your heart like a garden of roses ✨</span>
+    <div class="verse-ref-styled" style="background: none; margin-top: 0.8rem; color: #e08aaa;">BIBLE POSTER — All your needs · Mercy · Lion of Judah</div>
+  </footer>
+</div>
+
+<script>
+  const coverImage = document.getElementById('coverImg');
+  if (coverImage) {
+    coverImage.src = "picture.png";
+    coverImage.onerror = function() {
+      this.src = "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=1600&auto=format";
+      this.style.opacity = "0.25";
+    };
+  }
+
+  const enterBtn = document.getElementById('enterBtn');
+  const coverSec = document.getElementById('coverSection');
+  const mainSec = document.getElementById('mainContent');
+
+  if (enterBtn && coverSec && mainSec) {
+    enterBtn.addEventListener('click', () => {
+      coverSec.style.transition = "opacity 0.8s ease, visibility 0s linear 0.8s";
+      coverSec.style.opacity = "0";
+      setTimeout(() => {
+        coverSec.style.display = "none";
+        mainSec.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        document.body.style.background = "#fff9fb";
+        mainSec.style.animation = "pinkFade 0.7s cubic-bezier(0.2,0.9,0.4,1.1)";
+      }, 750);
+    });
+  }
+
+  const dynamicStyle = document.createElement('style');
+  dynamicStyle.textContent = `
+    @keyframes pinkFade {
+      0% { opacity: 0; transform: translateY(20px); filter: blur(2px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+  `;
+  document.head.appendChild(dynamicStyle);
+</script>
+</body>
+</html>
